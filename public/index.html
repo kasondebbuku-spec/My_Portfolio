@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasonde Bbuku | Software Engineer & Project Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0B0D12; font-family: 'Inter', sans-serif; color: #E8EDF2; line-height: 1.5; scroll-behavior: smooth; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1A1F2A; }
+    ::-webkit-scrollbar-thumb { background: #3B82F6; border-radius: 10px; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; flex-wrap: wrap; gap: 16px; }
+    .logo { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #FFF, #60A5FA); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .nav-links { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: #CBD5E1; text-decoration: none; font-weight: 500; transition: 0.2s; font-size: 0.95rem; }
+    .nav-links a:hover, .nav-links a.active { color: #60A5FA; }
+    .cv-btn { background: rgba(59,130,246,0.2); border: 1px solid #3B82F6; padding: 8px 18px; border-radius: 40px; color: #60A5FA; font-weight: 600; transition: 0.2s; }
+    .cv-btn:hover { background: #3B82F6; color: white; }
+    .hero { padding: 48px 0 32px; }
+    .badge-available { background: #1E293B; border-left: 4px solid #10B981; padding: 6px 14px; border-radius: 40px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+    .hero h1 { font-size: 3.6rem; font-weight: 800; letter-spacing: -0.03em; background: linear-gradient(to right, #F0F9FF, #94A3B8); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 16px; }
+    .hero-tagline { font-size: 1.2rem; color: #94A3B8; max-width: 650px; margin-bottom: 20px; }
+    .local-time { background: #11161F; display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 50px; font-size: 0.9rem; margin-bottom: 28px; font-family: monospace; }
+    .btn-group { display: flex; gap: 16px; flex-wrap: wrap; margin: 24px 0 32px; }
+    .btn-primary { background: #3B82F6; border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; color: white; cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn-outline { background: transparent; border: 1px solid #3B82F6; padding: 12px 28px; border-radius: 40px; font-weight: 600; color: #60A5FA; cursor: pointer; text-decoration: none; display: inline-block; }
+    .stats-grid { display: flex; gap: 40px; margin: 48px 0 24px; flex-wrap: wrap; }
+    .stat-item h3 { font-size: 2.2rem; font-weight: 800; color: #60A5FA; }
+    section { margin: 80px 0; }
+    .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 40px; border-left: 4px solid #3B82F6; padding-left: 20px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .contact-info { background: #11161F; padding: 24px; border-radius: 24px; }
+    .exp-card, .project-card, .skill-card { background: #11161F; border-radius: 24px; padding: 24px; border: 1px solid #1F2A3A; transition: 0.2s; }
+    .exp-card:hover, .project-card:hover { border-color: #3B82F6; transform: translateY(-4px); }
+    .skills-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+    .skill-icon { font-size: 2rem; margin-bottom: 12px; color: #3B82F6; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    .tech-tag { background: #1A2538; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; }
+    .badge-grid { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 24px; }
+    .credly-badge { background: #0F172A; border-radius: 20px; padding: 12px 24px; text-align: center; border: 1px solid #2D3A5E; }
+    .credly-badge a { color: white; text-decoration: none; font-weight: 500; }
+    .contact-form input, .contact-form textarea { width: 100%; background: #11161F; border: 1px solid #2D3748; border-radius: 16px; padding: 14px 18px; color: white; margin-bottom: 20px; }
+    .contact-form button { background: #3B82F6; border: none; padding: 14px; width: 100%; border-radius: 40px; font-weight: bold; cursor: pointer; color: white; }
+    footer { border-top: 1px solid #1F2937; padding: 32px 0; display: flex; justify-content: space-between; flex-wrap: wrap; }
+    @media (max-width: 800px) { .container { padding: 0 20px; } .hero h1 { font-size: 2.2rem; } .about-grid { grid-template-columns: 1fr; } }
+    .form-message { margin-top: 12px; font-size: 0.85rem; text-align: center; }
+    .availability-btn { background: #1E293B; border: 1px solid #3B82F6; border-radius: 32px; padding: 8px 20px; cursor: pointer; display: inline-block; }
+    .social-links a { color: #CBD5E1; margin-right: 16px; font-size: 1.4rem; transition: 0.2s; }
+    .social-links a:hover { color: #60A5FA; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <nav class="navbar">
+    <div class="logo">That_SWEngineer.</div>
+    <div class="nav-links">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#experience">Experience</a>
+      <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#credentials">Certifications</a>
+      <a href="#contact">Contact</a>
+      <a href="/cv.pdf" class="cv-btn" download><i class="fas fa-download"></i> Download CV</a>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="badge-available"><i class="fas fa-circle" style="color:#10B981; font-size: 10px;"></i> Available for opportunities</div>
+    <h1>Kasonde Bbuku</h1>
+    <div class="hero-tagline">
+      Software Engineering student & Project Management enthusiast based in Lusaka, Zambia.<br>
+      Building secure, scalable applications and leading impactful tech communities.
+    </div>
+    <div class="local-time" id="localTimeDisplay"><i class="far fa-clock"></i> --:--:-- — Lusaka</div>
+    <div class="btn-group">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="/cv.pdf" class="btn-outline" download><i class="fas fa-file-alt"></i> Download CV</a>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item"><h3 id="yearsExp">2+</h3><p>Years Experience</p></div>
+      <div class="stat-item"><h3 id="projectsCount">6+</h3><p>Projects Completed</p></div>
+      <div class="stat-item"><h3 id="techCount">15+</h3><p>Technologies</p></div>
+    </div>
+  </section>
+
+  <!-- ABOUT section with GitHub link added -->
+  <section id="about">
+    <div class="section-title">ABOUT</div>
+    <div class="about-grid">
+      <div>
+        <h2 style="margin-bottom: 16px;">Kasonde Bbuku</h2>
+        <h3 style="color:#94A3B8; margin-bottom: 12px;">Who I Am</h3>
+        <p style="margin-bottom: 24px;">
+          Forward-thinking Software Engineering student and Project Management enthusiast with hands-on internship experience in full-stack mobile and web development. Deeply committed to software quality assurance, strict design principles, and seamless maintenance from production to deployment.
+        </p>
+        <p style="margin-bottom: 24px;">
+          Possesses a robust foundational background in networking, cybersecurity, and cloud infrastructure, alongside proven leadership, public speaking, and community coordination capabilities.
+        </p>
+        <p>I thrive on turning complex requirements into clean, modular code and mentoring the next generation of developers.</p>
+        <div class="social-links" style="margin-top: 24px;">
+          <a href="https://github.com/kasondebbuku-spec" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.facebook.com/KasondeBbuku" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+          <a href="https://www.linkedin.com/in/kasonde-bbuku-598a10345" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="contact-info">
+        <div><i class="fas fa-envelope"></i> kasondebbuku1@gmail.com</div>
+        <div><i class="fas fa-phone-alt"></i> +260 97 235 7358</div>
+        <button id="checkAvailabilityAbout" class="availability-btn" style="background:#3B82F6; border:none; color:white;"><i class="fas fa-calendar-check"></i> Check Availability</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE (unchanged, from CV) -->
+  <section id="experience">
+    <div class="section-title">EXPERIENCE</div>
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div class="exp-card">
+        <div style="display: flex; justify-content: space-between; flex-wrap:wrap;"><h3>Software Engineering Intern</h3><span style="color:#60A5FA;">May 2025 – Present</span></div>
+        <p style="font-weight: 600;">Gladtidings Software Limited (Zambia)</p>
+        <ul style="margin-left: 20px; margin-top: 8px;">
+          <li>Legacy Application Maintenance – optimize, debug, and maintain a deployed commercial application within an agile team.</li>
+          <li>Greenfield Development – built a brand‑new software project from scratch, translating client requirements into clean, scalable code.</li>
+          <li>Quality Assurance – standardised maintenance workflows and refactored core codebases to minimise technical debt.</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div style="display: flex; justify-content: space-between;"><h3>Freelance Full‑Stack Developer & Digital Marketer</h3><span style="color:#60A5FA;">2024 – Present</span></div>
+        <p style="font-weight: 600;">Self‑Employed</p>
+        <ul style="margin-left: 20px; margin-top: 8px;">
+          <li>Web Architecture – built bespoke solutions with Next.js, Node.js, and modern styling tools.</li>
+          <li>Database Integration – designed local/cloud storage using Firebase and SQLite.</li>
+          <li>Growth Marketing – executed digital strategies, content creation, and social media management to drive engagement.</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div style="display: flex; justify-content: space-between;"><h3>Vice President</h3><span style="color:#60A5FA;">2025 – Present</span></div>
+        <p style="font-weight: 600;">University of Zambia Computer Science Society (UCS)</p>
+        <ul style="margin-left: 20px; margin-top: 8px;">
+          <li>Co‑lead the premier tech society, organising workshops, hackathons, and networking events.</li>
+          <li>Coordinate executive operations, manage project timelines, and foster collaborative student builds.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS (unchanged) -->
+  <section id="skills">
+    <div class="section-title">SKILLS</div>
+    <div class="skills-container">
+      <div class="skill-card"><i class="fas fa-code skill-icon"></i><h3>Frontend & Mobile</h3><p>JavaScript, TypeScript, React Native, Next.js, Flutter (Dart)</p></div>
+      <div class="skill-card"><i class="fas fa-server skill-icon"></i><h3>Backend & Databases</h3><p>Node.js, Express, Firebase Firestore, SQLite, Python (learning)</p></div>
+      <div class="skill-card"><i class="fas fa-cloud skill-icon"></i><h3>Engineering & Cloud</h3><p>Software Maintenance, SQA, Agile, Project Management, Google Cloud</p></div>
+      <div class="skill-card"><i class="fas fa-shield-alt skill-icon"></i><h3>Networking & Security</h3><p>Network Architecture, CyberOps, Ethical Hacking, Linux Systems</p></div>
+      <div class="skill-card"><i class="fas fa-chalkboard-user skill-icon"></i><h3>Leadership & Soft</h3><p>Public Speaking, Team Leadership, Online Collaboration, Digital Marketing</p></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS (unchanged) -->
+  <section id="projects">
+    <div class="section-title">PROJECTS</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px;">
+      <div class="project-card">
+        <h3>Legacy System Modernization</h3>
+        <p>Refactored a commercial legacy application, reduced technical debt by 30%, and introduced automated testing pipelines.</p>
+        <div class="project-tech"><span class="tech-tag">JavaScript</span><span class="tech-tag">Node.js</span><span class="tech-tag">Agile</span></div>
+        <a href="#" class="btn-outline" style="padding:6px 18px;">Case Study →</a>
+      </div>
+      <div class="project-card">
+        <h3>Full‑Stack E‑Commerce Platform</h3>
+        <p>End‑to‑end e‑commerce solution for a local client using Next.js, Firebase, and Stripe integration.</p>
+        <div class="project-tech"><span class="tech-tag">Next.js</span><span class="tech-tag">Firebase</span><span class="tech-tag">Tailwind</span></div>
+        <a href="#" class="btn-outline" style="padding:6px 18px;">Live Demo →</a>
+      </div>
+      <div class="project-card">
+        <h3>University Tech Society Portal</h3>
+        <p>Built a community portal for UCS members with event registration, resource sharing, and real‑time updates.</p>
+        <div class="project-tech"><span class="tech-tag">React</span><span class="tech-tag">Express</span><span class="tech-tag">MongoDB</span></div>
+        <a href="#" class="btn-outline" style="padding:6px 18px;">GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS (unchanged) -->
+  <section id="credentials">
+    <div class="section-title">CERTIFICATIONS</div>
+    <div class="badge-grid">
+      <div class="credly-badge">CyberOps Associate (Cisco)</div>
+      <div class="credly-badge">Ethical Hacking (Cisco)</div>
+      <div class="credly-badge">CCNA: Introduction to Networks</div>
+      <div class="credly-badge">IT Essentials</div>
+      <div class="credly-badge">NDG Linux Essentials</div>
+      <div class="credly-badge">Digital & Social Media Marketing (UniAthena)</div>
+      <div class="credly-badge">Beyond Success Training</div>
+      <div class="credly-badge">Leadership & Service (UNZANASA Debate Club)</div>
+    </div>
+  </section>
+
+  <!-- CONTACT + FORM (unchanged) -->
+  <section id="contact">
+    <div class="section-title">CONTACT</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+      <div>
+        <h3>Let's Work Together</h3>
+        <p style="margin:16px 0;">Have a project, opportunity, or just want to connect? Reach out — I'm always open to interesting conversations.</p>
+        <div><i class="fas fa-envelope"></i> kasondebbuku1@gmail.com</div>
+        <div><i class="fas fa-phone-alt"></i> +260 97 235 7358</div>
+        <button id="checkAvailabilityContact" class="availability-btn" style="margin-top:28px;"><i class="fas fa-calendar-check"></i> Check My Availability</button>
+      </div>
+      <div>
+        <form id="contactForm" class="contact-form">
+          <input type="text" id="name" placeholder="Your name" required>
+          <input type="email" id="email" placeholder="your@email.com" required>
+          <textarea rows="4" id="message" placeholder="What's on your mind?" required></textarea>
+          <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+          <div id="formStatus" class="form-message"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2026 Kasonde Bbuku. All rights reserved.</div>
+    <div><a href="/cv.pdf" download style="color:#60A5FA;"><i class="fas fa-download"></i> Download CV</a></div>
+  </footer>
+</div>
+
+<script>
+  // Lusaka local time
+  function updateTime() {
+    const now = new Date();
+    const options = { timeZone: 'Africa/Lusaka', hour12: true, hour:'2-digit', minute:'2-digit', second:'2-digit' };
+    const timeStr = new Intl.DateTimeFormat('en-US', options).format(now);
+    document.getElementById('localTimeDisplay').innerHTML = `<i class="far fa-clock"></i> ${timeStr} — Lusaka`;
+  }
+  updateTime(); setInterval(updateTime, 1000);
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Check Availability buttons
+  document.getElementById('checkAvailabilityAbout')?.addEventListener('click', () => {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  });
+  document.getElementById('checkAvailabilityContact')?.addEventListener('click', () => {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Contact form handler
+  const form = document.getElementById('contactForm');
+  const statusDiv = document.getElementById('formStatus');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email || !message) {
+      statusDiv.innerHTML = '<span style="color:#F87171;">❌ All fields are required.</span>';
+      return;
+    }
+    statusDiv.innerHTML = '<span style="color:#60A5FA;">⏳ Sending...</span>';
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        statusDiv.innerHTML = `<span style="color:#10B981;">✅ ${data.message}</span>`;
+        form.reset();
+      } else {
+        statusDiv.innerHTML = `<span style="color:#F87171;">❌ ${data.error}</span>`;
+      }
+    } catch (err) {
+      statusDiv.innerHTML = '<span style="color:#F87171;">❌ Network error. Please try again.</span>';
+    }
+  });
+
+  // Animate stats
+  function animateStat(el, target) {
+    let curr = 0;
+    const step = Math.ceil(target / 30);
+    const timer = setInterval(() => {
+      curr += step;
+      if (curr >= target) {
+        el.innerText = target + '+';
+        clearInterval(timer);
+      } else {
+        el.innerText = curr + '+';
+      }
+    }, 25);
+  }
+  animateStat(document.getElementById('yearsExp'), 2);
+  animateStat(document.getElementById('projectsCount'), 6);
+  animateStat(document.getElementById('techCount'), 15);
+</script>
+</body>
+</html>
